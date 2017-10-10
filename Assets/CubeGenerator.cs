@@ -36,7 +36,7 @@ public class CubeGenerator : MonoBehaviour
 		{
 			this.delta = 0;
 
-			int n = Random.Range(1, maxBlockNum);
+			int n = Random.Range(1, maxBlockNum + 1);
 
 			for (int i = 0; i < n; i++)
 			{
