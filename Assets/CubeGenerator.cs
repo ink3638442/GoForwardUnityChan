@@ -30,21 +30,21 @@ public class CubeGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		this.delta += Time.deltaTime;
+        this.delta += Time.deltaTime;
 
-		if (this.delta > this.span)
-		{
-			this.delta = 0;
+        if (this.delta > this.span)
+        {
+            this.delta = 0;
 
-			int n = Random.Range(1, maxBlockNum + 1);
+            int n = Random.Range(1, maxBlockNum + 1);
 
-			for (int i = 0; i < n; i++)
-			{
-				GameObject go = Instantiate(cubePrefab) as GameObject;
-				go.transform.position = new Vector2(this.genPosX, this.offsetY + i * this.spaceY);
-			}
+            for (int i = 0; i < n; i++)
+            {
+                GameObject go = Instantiate(cubePrefab) as GameObject;
+                go.transform.position = new Vector2(this.genPosX, this.offsetY + i * this.spaceY);
+            }
 
-			this.span = this.offsetX + this.spaceX * n;
-		}
+            this.span = this.offsetX + this.spaceX * n;
+        }
     }
 }

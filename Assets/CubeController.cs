@@ -9,10 +9,14 @@ public class CubeController : MonoBehaviour
 
     private float deadLine = -10;
 
+    private float groundLevel = -3.0f;
+
+    AudioSource se;
+
     // Use this for initialization
     void Start()
     {
-
+        this.se = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +27,14 @@ public class CubeController : MonoBehaviour
         if (transform.position.x < this.deadLine)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+	{
+        if (other.gameObject.tag == "GroundTag" || other.gameObject.tag == "CubeTag")
+        {
+            se.Play();
         }
     }
 }
