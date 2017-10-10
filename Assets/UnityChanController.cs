@@ -14,6 +14,8 @@ public class UnityChanController : MonoBehaviour
 
 	private float jumpVelocity = 20;
 
+	private float deadLine = -9;
+
     // Use this for initialization
     void Start()
     {
@@ -40,6 +42,13 @@ public class UnityChanController : MonoBehaviour
 			{
 				this.rigid2D.velocity *= this.dump;
 			}
+		}
+
+		if (transform.position.x < this.deadLine)
+		{
+			GameObject.Find("Canvas").GetComponent<UIController>().GameOver();
+
+			Destroy(gameObject);
 		}
     }
 }
